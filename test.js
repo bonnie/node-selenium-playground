@@ -13,8 +13,7 @@ describe('Google Search with selenium-webdriver promises', () => {
 
   test.it('recognizes entered search term', () => {
     driver.get('http://www.google.com')
-    .then(() => driver.findElement(searchElementDescriptor))
-    .then(searchElement => searchElement.sendKeys(searchTerm))
+    .then(() => driver.findElement(searchElementDescriptor).sendKeys(searchTerm))
     .then(() => driver.findElement(searchElementDescriptor).getAttribute('value'))
     .then((value) => { expect(value).to.equal(searchTerm) })
   })
